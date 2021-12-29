@@ -1,0 +1,70 @@
+html, body{
+    width: 100%;
+    height: 90vh;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.rbc-calendar{
+    width: 100%;
+    height: 100%;
+}
+
+/*MODAL*/
+
+.ReactModalPortal > div{
+    opacity: 0;
+    margin: 0px;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .2s ease-in-out;
+    z-index: 999;
+    margin: 0px;
+}
+
+.modal-fondo {
+    background-color: rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+    margin: 0px;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+    margin: 0px;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
+    margin: 0px;
+}
+
+.modal {
+    background: white;
+    border-radius: 5px;
+    color: rgb(51, 51, 51);
+    display: inline;
+    max-height: 620px;
+    max-width: 500px;
+    outline: none;
+    padding: 10px;
+}
+
+/*DATATIME PICKER*/
+
+.react-datetime-picker input:focus{
+    outline: none;
+}
+
+.react-datetime-picker__wrapper{
+    border: 0px solid;
+}

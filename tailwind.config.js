@@ -16,6 +16,7 @@ module.exports = {
       fontFamily: {
 				Poppins: ["Poppins"],
 				Montserrat: ["Montserrat"],
+				Newake: ["Newake"],
 			},
     },
   },
