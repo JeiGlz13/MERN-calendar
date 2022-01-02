@@ -6,7 +6,7 @@ import moment from 'moment';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../redux/actions/modalActions'
-import {eventAddNew, eventClearActive, eventClearStartEnd, eventUpdate} from '../../redux/actions/eventsActions';
+import {eventStartAddNew, eventClearActive, eventClearStartEnd, eventStartUpdate} from '../../redux/actions/eventsActions';
 
 
 Modal.setAppElement('#root');
@@ -18,6 +18,7 @@ const nowPlus1 = now.clone().add(1, "hours");
 export const CalendarModal = () => {
 	const {modalOpen} = useSelector(state => state.modal);
 	const {activeEvent, setStart, setEnd} = useSelector(state => state.events);
+
 
 	let initEvent = {
 		titulo: '',
@@ -44,6 +45,8 @@ export const CalendarModal = () => {
 			}
 			setDateStart(setStart);
 			setDateEnd(setEnd);
+
+			setFormValues(initEvent);
 		}else{
 			const firstDate = now.toDate();
 			const secondDate = nowPlus1.toDate();
@@ -60,6 +63,8 @@ export const CalendarModal = () => {
 	useEffect(() => {
 		if (activeEvent) {
 			setFormValues(activeEvent);
+			setDateStart(activeEvent.start);
+			setDateEnd(activeEvent.end);
 		}else{
 			setFormValues(initEvent);
 		}
@@ -106,24 +111,16 @@ export const CalendarModal = () => {
 	}
 
 	const saveNewEvent = (event) =>{
-		dispatch( eventAddNew({
-			...event,
-			user: {
-				id: new Date().getTime(),
-				name: 'Jeisson'
-			}
-		}) );
+		dispatch( eventStartAddNew(event) );
 	}
 
-	const updateEvent = (evemt) =>{
-		dispatch(eventUpdate(evemt));
+	const updateEvent = (event) =>{
+		dispatch(eventStartUpdate(event));
 	}
 
 	const handleSubmitForm = (e) =>{
 		e.preventDefault();
 		if(validateForm() === true){
-			//TODO: send to database
-
 			if(activeEvent){
 				updateEvent(formValues);
 			}else{

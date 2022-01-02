@@ -1,8 +1,7 @@
-import moment from "moment";
 import { types } from "../types/types";
 
-const initialState = {
-    events: [{
+/*
+    {
         id: new  Date().getTime(),
         titulo: 'Cumpleaños',
         start: moment().toDate(),
@@ -12,7 +11,11 @@ const initialState = {
             id: '123',
             name: 'Jeisson'
         }
-    }],
+    }
+*/
+
+const initialState = {
+    events: [],
     activeEvent: null,
     setStart: null,
     setEnd: null
@@ -69,7 +72,18 @@ export const eventsReducer = (state = initialState, action) =>{
                 setStart: null,
                 setEnd: null
             }
+
+        case types.eventLoaded:
+            return {
+                ...state,
+                events: [...action.payload]
+            }
    
+        case types.eventClear:
+            return {
+                ...initialState
+            }
+
        default:
            return state;
    }
