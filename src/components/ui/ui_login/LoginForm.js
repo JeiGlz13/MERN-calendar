@@ -1,5 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useForm } from '../../../customHooks/useForm';
+import { startLogin } from '../../../redux/actions/authActions';
 import { setRegisterForm } from '../../../redux/actions/uiActions';
 
 export const LoginForm = () => {
@@ -8,6 +10,20 @@ export const LoginForm = () => {
     const handleSetRegister = (e) =>{
         e.preventDefault();
         dispatch(setRegisterForm());
+    }
+
+    const initialLogin = {
+        email: '',
+        password: ''
+    }
+    const [formValues, handleInputChange,reset] = useForm(initialLogin);
+
+    const {email, password} = formValues;
+
+    const handleLogin = (e) =>{
+        e.preventDefault();
+        dispatch(startLogin(email, password));
+        reset();
     }
 
     return (
@@ -20,12 +36,18 @@ export const LoginForm = () => {
                         MERN Calendar
                     </h1>
            
-                    <form action="" className="sm:w-9/12 w-full px-4 lg:px-0 mx-auto">
+                    <div className="sm:w-9/12 w-full px-4 lg:px-0 mx-auto">
                         <div className="pb-2 pt-4">
-                            <input type="email" name="email" id="email" placeholder="Email" className="block w-full p-4 text-lg rounded-2xl bg-black"/>
+                            <input type="email" name="email" id="email"
+                            value={email} onChange={handleInputChange} 
+                            placeholder="Email" 
+                            className="block w-full p-4 text-lg rounded-2xl bg-black"/>
                         </div>
                         <div className="pb-2 pt-4">
-                            <input className="block w-full p-4 text-lg rounded-2xl bg-black" type="password" name="password" id="password" placeholder="Password"/>
+                            <input className="block w-full p-4 text-lg rounded-2xl bg-black" 
+                            type="password" name="password" id="password" 
+                            value={password} onChange={handleInputChange}
+                            placeholder="Password"/>
                         </div>
 
                         <div className="pb-2 pt-4">
@@ -39,11 +61,15 @@ export const LoginForm = () => {
                         </div>
             
                         <div className="px-4 pb-2 pt-4 w-full flex justify-center">
-                            <button className="uppercase block w-10/12 p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">Iniciar Sesión</button>
+                            <button 
+                            onClick={handleLogin}
+                            className="uppercase block w-10/12 p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">
+                                Iniciar Sesión
+                            </button>
                         </div>
 
                       
-                    </form>
+                    </div>
                 </div>
             </div>
     )
