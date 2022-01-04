@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el Login Screen Debe mostrarse correctamente 1`] = `
+<section
+  className="w-full bg-gray-200 flex items-center justify-center text-white font-Poppins"
+>
+  <div
+    className="w-11/12 my-8 flex flex-row border-8 border-white rounded-3xl z-50 overflow-hidden shadow-2xl"
+  >
+    <div
+      className="animate__animated animate__fadeInLeft animate__faster lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0 bg-zinc-800"
+    >
+      <div
+        className="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center"
+      >
+        <div
+          className="absolute bg-black opacity-60 inset-0 z-0"
+        />
+      </div>
+      <div
+        className="w-full py-6 z-20"
+      >
+        <h1
+          className="my-6 text-4xl sm:text-5xl text-white font-Newake"
+        >
+          MERN Calendar
+        </h1>
+        <form
+          action=""
+          className="sm:w-9/12 w-full px-4 lg:px-0 mx-auto"
+        >
+          <div
+            className="pb-2 pt-4"
+          >
+            <input
+              className="block w-full p-4 text-lg rounded-2xl bg-black"
+              id="nombre"
+              name="nombre"
+              onChange={[Function]}
+              placeholder="Nombre"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="pb-2 pt-4"
+          >
+            <input
+              className="block w-full p-4 text-lg rounded-2xl bg-black"
+              id="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              type="email"
+              value=""
+            />
+          </div>
+          <div
+            className="pb-2 pt-4"
+          >
+            <input
+              className="block w-full p-4 text-lg rounded-2xl bg-black"
+              id="password1"
+              name="password1"
+              onChange={[Function]}
+              placeholder="Contraseña"
+              type="password"
+              value=""
+            />
+          </div>
+          <div
+            className="pb-2 pt-4"
+          >
+            <input
+              className="block w-full p-4 text-lg rounded-2xl bg-black"
+              id="password2"
+              name="password2"
+              onChange={[Function]}
+              placeholder="Repita su contraseña"
+              type="password"
+              value=""
+            />
+          </div>
+          <div
+            className="pb-2 pt-4"
+          >
+            <h1
+              className="text-gray-400 text-sm"
+            >
+              ¿Ya tiene una cuenta?
+              <button
+                className="text-gray-200 text-sm cursor-pointer ml-1"
+                onClick={[Function]}
+              >
+                Inicie Sesión
+              </button>
+            </h1>
+          </div>
+          <div
+            className="px-4 pb-2 pt-4 flex justify-center"
+          >
+            <button
+              className="uppercase block w-10/12 p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"
+              onClick={[Function]}
+            >
+              Registrarse
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="lg:flex w-1/2 hidden bg-gray-500 relative items-center animate__animated animate__fadeIn animate__faster"
+    >
+      <img
+        alt="banner"
+        className="relative opacity-90 z-0 overflow-hidden h-screen"
+        src="agendaWallpaper.jpg"
+      />
+      <div
+        class="absolute bg-black opacity-30 inset-0 z-10"
+      />
+      <div
+        className="absolute w-full px-24 z-20"
+      >
+        <h1
+          className="text-5xl font-bold text-left tracking-wide"
+        >
+          Agenda personal
+        </h1>
+        <p
+          className="text-3xl my-4"
+        >
+          Anota tus recordatorios en esta agenda virtual
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+`;

@@ -106,7 +106,6 @@ export const eventStartLoading = () =>{
 
                const eventos = prepareEvents(myEvents);
 
-               console.log(eventos);
 
                dispatch(eventLoaded(eventos));
 

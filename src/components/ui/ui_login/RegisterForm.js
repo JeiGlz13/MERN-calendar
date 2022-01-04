@@ -25,7 +25,7 @@ export const RegisterForm = () => {
 
     const handleRegister = (e) =>{
         e.preventDefault();
-        if (password1 !== password2){Swal.fire('Error', 'Las contraseñas no coinciden', 'error')}
+        if (password1 !== password2){return Swal.fire('Error', 'Las contraseñas no coinciden', 'error')}
         dispatch(startRegister(nombre, email, password1));
         reset();
     }

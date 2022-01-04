@@ -8,8 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../redux/actions/modalActions'
 import {eventStartAddNew, eventClearActive, eventClearStartEnd, eventStartUpdate} from '../../redux/actions/eventsActions';
 
-
-Modal.setAppElement('#root');
+if (process.env.NODE_ENV !== 'test') {
+	Modal.setAppElement('#root');
+}
 
 const now = moment().minutes(0).seconds(0).add(1, "hours");
 const nowPlus1 = now.clone().add(1, "hours");
@@ -146,6 +147,7 @@ export const CalendarModal = () => {
         closeTimeoutMS={200}
         className="py-6 flex flex-col justify-center sm:py-12 outline-none focus:outline-none border-0"
         overlayClassName="modal-fondo"
+		ariaHideApp ={!process.env.NODE_ENV === 'test'}
       >
         
        
