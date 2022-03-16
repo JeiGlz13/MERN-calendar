@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../../redux/actions/authActions';
 
+import {Offline, Online} from 'react-detect-offline';
+
 export const Navbar = () => {
     const {name} = useSelector(state => state.auth);
     const dispatch = useDispatch();
@@ -22,12 +24,17 @@ export const Navbar = () => {
                 Hola, {name}
               </h3>
           
-              {/*<ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-                <li><a className="hover:text-gray-200" href="#">Home</a></li>
-                <li><a className="hover:text-gray-200" href="#">Catagory</a></li>
-                <li><a className="hover:text-gray-200" href="#">Collections</a></li>
-                <li><a className="hover:text-gray-200" href="#">Contact Us</a></li>
-              </ul>*/}
+              <Online>
+                  <span className='text-lg font-Poppins font-bold text-green-400' >
+                    Online
+                  </span>
+              </Online>
+
+              <Offline>
+                  <span className='text-lg font-Poppins font-bold text-red-500' >
+                    Offline - conectese a internet
+                  </span>
+              </Offline>
 
               <div className="flex items-center space-x-5">
                 <button onClick={handleLogout} 
@@ -38,13 +45,7 @@ export const Navbar = () => {
                 </button>
               </div>
             </div>
-         
-           
-            {/*<h3 className="navbar-burger self-center mr-12 sm:hidden" >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </h3>*/}
+        
           </nav>
           
         </section>
